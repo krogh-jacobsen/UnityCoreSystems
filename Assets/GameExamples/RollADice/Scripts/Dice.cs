@@ -22,24 +22,42 @@ public class Dice : MonoBehaviour
 	{
 		spriteRenderer.sprite = valueSprites[2];
 	}
-	#endregion
 
-	#region Methods
-	private void SetSpriteBasedOnValue(int value)
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+			RollDice();
+		}
+    }
+
+    #endregion
+
+    #region Methods
+    private void SetSpriteBasedOnValue(int value)
     {
 		spriteRenderer.sprite = valueSprites[value-1];
 	}
+
+	private void WinCondition()
+    {
+		Debug.Log("You won the game");
+		// Reset number of attempts
+		gameManager.NumberOfAtttempts = 0;
+	}
+
 	public void RollDice()
 	{
-		currentValue = Random.Range(1, maxValue);
+		// Random.Range includes min but excludes max so incrementing maxvalue with one
+		currentValue = Random.Range(1, maxValue+1);
 		SetSpriteBasedOnValue(currentValue);
 		// Check win condition
 		if(currentValue == maxValue)
         {
-			Debug.Log("You won the game");
-			// Reset number of attempts
-			gameManager.NumberOfAtttempts = 0;
+			WinCondition();
 		}
+		else 
 		{
 			gameManager.NumberOfAtttempts++;
 			Debug.Log("Rolled: " + currentValue  +  ". Attempt failed. Totalt attempts: " + gameManager.NumberOfAtttempts);
