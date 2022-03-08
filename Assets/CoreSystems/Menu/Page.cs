@@ -2,29 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Page : MonoBehaviour
+namespace UnityGameSystems
 {
-	#region Fields
-	//[Header("")]
-	[SerializeField]
-	#endregion
-
-	#region Properties
-	#endregion
-
-	#region MonoBehaviour
-	void Start()
+	namespace Menu
 	{
+		public class Page : MonoBehaviour
+		{
+			// Consider doing an enum instead
+			public static readonly static FLAG_ON = "On";
+			public static readonly static FLAG_OFF = "Off";
+			public static readonly static FLAG_NONE = "None";
 
+			public PageType type;
+			public bool useAnimation;
+			public string targetState { get; private set; }
+
+			private Animator m_Animator;
+
+		}
 	}
-
-	void Update()
-	{
-
-	}
-	#endregion
-
-	#region Methods
-
-	#endregion
 }
