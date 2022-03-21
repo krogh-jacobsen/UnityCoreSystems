@@ -9,9 +9,9 @@ namespace UnityGameSystems
 		public class Page : MonoBehaviour
 		{
 			// Consider doing an enum instead
-			public static readonly static FLAG_ON = "On";
-			public static readonly static FLAG_OFF = "Off";
-			public static readonly static FLAG_NONE = "None";
+			//public static readonly static FLAG_ON = "On";
+			//public static readonly static FLAG_OFF = "Off";
+			//public static readonly static FLAG_NONE = "None";
 
 			public PageType type;
 			public bool useAnimation;
